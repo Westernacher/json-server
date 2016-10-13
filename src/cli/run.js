@@ -54,6 +54,10 @@ function createApp (source, object, routes, middlewares, argv) {
     defaultsOpts.static = path.join(process.cwd(), argv.static)
   }
 
+  if (argv.staticOptions) {
+    defaultsOpts.staticOptions = path.join(process.cwd(), argv.staticOptions)
+  }
+
   var defaults = jsonServer.defaults(defaultsOpts)
   app.use(defaults)
 

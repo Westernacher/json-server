@@ -196,6 +196,24 @@ json-server db.json
 json-server db.json --static ./some-other-dir
 ```
 
+You may also have json-server pass an options object to express.static by adding a js or json
+file via `--staticOptions`.
+
+```javascript
+// my-static-options.js
+module.exports = {
+  setHeaders: (res, path, stat) => {
+    if (path.endsWith('login')) {
+      res.header('Content-Type', 'text/html; charset=UTF-8');
+    }
+  }
+};
+```
+
+```bash
+json-server db.json --static ./some-other-dir --staticOptions ./my-static-options
+```
+
 ### Alternative port
 
 You can start JSON Server on other ports with the `--port` flag:

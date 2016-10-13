@@ -37,6 +37,10 @@ module.exports = function () {
         alias: 's',
         description: 'Set static files directory'
       },
+      staticOptions: {
+        alias: 'so',
+        description: 'Set options file (json or js) to be passed to express.static'
+      },
       'read-only': {
         alias: 'ro',
         description: 'Allow only GET requests'

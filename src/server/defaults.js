@@ -45,18 +45,11 @@ module.exports = function (opts) {
   }
 
   // Serve static files
-  // And pass some options, too!
-  // TODO pass the options cf. (http://expressjs.com/en/4x/api.html, section on express.static(root, [options]))
-  // in a staticOptions file passed as opts.staticOptions via the cli interface of json-server
-  // and issue due pull request in source repo
-  arr.push(express.static(opts.static, {
-    setHeaders: (res, path, stat) => {
-      if (path.endsWith('authentication/v1/login')) {
-        res.header('Content-Type', 'text/html; charset=UTF-8');
-      }
-    }
-  }));
-  
+  arr.push(express.static(
+    opts.static,
+    fs.existsSync(opts.staticOptions) && require(opts.staticOptions)
+  ))
+
   // No cache for IE
   // https://support.microsoft.com/en-us/kb/234067
   arr.push(function (req, res, next) {
