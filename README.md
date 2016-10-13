@@ -311,6 +311,7 @@ Options:
   --routes, -r         Path to routes file
   --middlewares, -m    Paths to middleware files                           [array]
   --static, -s         Set static files directory
+  --staticOptions -so  Set static options file
   --read-only, --ro    Allow only GET requests                           [boolean]
   --no-cors, --nc      Disable Cross-Origin Resource Sharing             [boolean]
   --no-gzip, --ng      Disable GZIP Content-Encoding                     [boolean]
